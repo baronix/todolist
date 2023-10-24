@@ -26,7 +26,7 @@ function Home() {
     }
 
   return (
-    <div className='h-screen max-h-screen overflow-y-scroll justify-center mx-auto flex flex-col items-center bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black pb-[50px]'>
+    <div className='h-screen max-h-screen overflow-y-scroll  mx-auto flex flex-col items-center bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black pb-[50px]'>
         {/* <img src={todoLogo} alt="Todo list" className='max-w-[500px] hover:scale-105 duration-100'/> */}
         <Header className="sticky top-0 z-50"/>
         <Create className=''/>
@@ -36,9 +36,9 @@ function Home() {
             <div className='flex'><h2 className='text-white italic font-mono mr-1'>Sem tarefas por realizar</h2>🥳</div> 
             :
             todos.map(todo=>(
-                <div key={todo._id} className='w-[500px] mt-3  shadow-lg shadow-indigo-500/40'>
+                <div key={todo._id} className='max-w-[80%] w-[80%] lg:w-[500px] mt-3  shadow-lg shadow-indigo-500/40'>
                     <div className="flex rounded-md shadow-sm">
-                        <button type="button" className="inline-flex flex-shrink-0 justify-center items-center h-[2.875rem] w-[2.875rem] rounded-l-md  font-semibold bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500 text-white transition-all text-sm">
+                        <button type="button" className="inline-flex flex-shrink-0  justify-center items-center px-4 rounded-l-md  font-semibold bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500 text-white transition-all text-sm">
                             {todo.done 
                             ? 
                             <BsFillCheckCircleFill className='text-white text-lg hover:animate-spin'/> 
