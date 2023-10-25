@@ -8,19 +8,19 @@ import Header from './Header';
 function Home() {
     const [todos,setTodos] = useState([]);
     useEffect(()=>{
-        axios.get('https://todolist-api-k7pz.onrender.com/get')
+        axios.get('https://us-central1-todo-f73fb.cloudfunctions.net/api/get')
         .then(result => setTodos(result.data))
         .catch(err => console.log(err))
     }, [])
 
     const handleEdit = (id) => {
-        axios.put('https://todolist-api-k7pz.onrender.com/update/'+id)
+        axios.put('https://us-central1-todo-f73fb.cloudfunctions.net/api/update/'+id)
         .then(result => {location.reload()})
         .catch(err => console.log(err))
     }
 
     const handleDelete = (id) => {
-        axios.delete('https://todolist-api-k7pz.onrender.com/delete/'+id)
+        axios.delete('https://us-central1-todo-f73fb.cloudfunctions.net/api/delete/'+id)
         .then(result => {location.reload()})
         .catch(err => console.log(err))
     }

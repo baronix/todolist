@@ -4,7 +4,7 @@ import axios from 'axios'
 const Create = () => {
     const [task,setTask] = useState([])
     const handleAdd = ()=>{
-        axios.post('https://todolist-api-k7pz.onrender.com/add', {task: task})
+        axios.post('https://us-central1-todo-f73fb.cloudfunctions.net/api/add', {task: task})
         .then(result => {location.reload()})
         .catch(err => console.log(err))
     }
