@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import { useState } from 'react'
 import axios from 'axios'
 
 const Create = () => {
     const [task,setTask] = useState([])
     const handleAdd = ()=>{
-        axios.post('https://us-central1-todo-f73fb.cloudfunctions.net/api/add', {task: task})
+        axios.post('https://api-for-todolist.vercel.app/add', {task: task})
         .then(result => {location.reload()})
         .catch(err => console.log(err))
     }
@@ -15,6 +15,8 @@ const Create = () => {
       handleAdd();
     }
   };
+
+
     
   return (
     <div className='max-w-[100%] w-[80%] lg:w-[500px] mt-3  shadow-lg shadow-indigo-500/40'>

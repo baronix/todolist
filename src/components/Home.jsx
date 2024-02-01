@@ -1,33 +1,31 @@
 import { useEffect, useState } from 'react'
 import Create from './Create'
 import axios from 'axios';
-import todoLogo from '../assets/logo.webp'
 import {BsCircleFill,BsFillTrashFill, BsFillCheckCircleFill} from 'react-icons/bs'
 import Header from './Header';
 
 function Home() {
     const [todos,setTodos] = useState([]);
     useEffect(()=>{
-        axios.get('https://us-central1-todo-f73fb.cloudfunctions.net/api/get')
+        axios.get('https://api-for-todolist.vercel.app/get')
         .then(result => setTodos(result.data))
         .catch(err => console.log(err))
     }, [])
 
     const handleEdit = (id) => {
-        axios.put('https://us-central1-todo-f73fb.cloudfunctions.net/api/update/'+id)
+        axios.put('https://api-for-todolist.vercel.app/update/'+id)
         .then(result => {location.reload()})
         .catch(err => console.log(err))
     }
 
     const handleDelete = (id) => {
-        axios.delete('https://us-central1-todo-f73fb.cloudfunctions.net/api/delete/'+id)
+        axios.delete('https://api-for-todolist.vercel.app/delete/'+id)
         .then(result => {location.reload()})
         .catch(err => console.log(err))
     }
 
   return (
     <div className='h-screen max-h-screen overflow-y-scroll  mx-auto flex flex-col items-center bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black pb-[50px]'>
-        {/* <img src={todoLogo} alt="Todo list" className='max-w-[500px] hover:scale-105 duration-100'/> */}
         <Header className="sticky top-0 z-50"/>
         <Create className=''/>
         {
@@ -64,10 +62,4 @@ function Home() {
 }
 
 export default Home
-
-{/*             <div className='flex border w-[500px] justify-center items-center mb-2 rounded-lg py-3 border-indigo-400 ml-3' onClick={()=> handleEdit(todo._id)} key={todo._id}>
-                    {todo.done ? <BsFillCheckCircleFill className='text-white'/> : <BsCircleFill className='text-white hover:scale-110 duration-100'/>}
-                    <p className={todo.done ? "line-through text-white" : "text-white"}>{todo.task}</p>
-                    <span><BsFillTrashFill onClick={()=> handleDelete(todo._id)} className='text-white hover:scale-110 duration-100 '/></span>
-                </div> */}
     

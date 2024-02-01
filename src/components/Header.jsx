@@ -1,4 +1,3 @@
-import React from 'react'
 import todoLogo from '../assets/logo.webp'
 
 const Header = () => {
